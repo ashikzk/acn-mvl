@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="Accounts">
+        <setting id="username_xbmc" type="text" label="20001" default="" enable="!eq(-1,false)"/>
+        <setting id="activationkey_xbmc" type="text" label="20002" option="hidden" default="" enable="!eq(-2,false)"/>
+    </category>
+    <category label="General">
+        <setting id="page_limit_xbmc" type="text" label="20003" default="10" enable="!eq(-3,false)"/>
+    </category>
+</settings>

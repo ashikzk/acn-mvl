@@ -1,0 +1,68 @@
+<window>
+  <defaultcontrol>11</defaultcontrol>
+  <include>OpenClose</include>
+  <controls>
+    <include>DimBG</include>
+    <control type="group" description="Content">
+      <include>DialogOpenClose</include>
+      <control type="image">
+        <posx>360</posx>
+        <posy>20</posy>
+        <width>1200</width>
+        <height>1040</height>
+        <texture>dialogs/DialogBG.png</texture>
+      </control>
+      <control type="label" id="1" description="Header">
+        <posx>0</posx>
+        <posy>60</posy>
+        <width>1920</width>
+        <height>45</height>
+        <align>center</align>
+        <textcolor>Orange</textcolor>
+      </control>
+      <control type="textbox" id="2" description="TextArea">
+        <posx>424</posx>
+        <posy>150</posy>
+        <width>1070</width>
+        <height>790</height>
+        <font>InfoPlot</font>
+        <align>justify</align>
+      </control>
+      <control type="scrollbar" id="61">
+        <posx>1523</posx>
+        <posy>150</posy>
+        <width>36</width>
+        <height>790</height>
+        <texturesliderbackground>-</texturesliderbackground>
+        <texturesliderbar>-</texturesliderbar>
+        <texturesliderbarfocus>-</texturesliderbarfocus>
+        <textureslidernib border="18">OSD/ScrollbarNibNF.png</textureslidernib>
+        <textureslidernibfocus border="18">OSD/ScrollbarNibFO.png</textureslidernibfocus>
+        <showonepage>true</showonepage>
+        <orientation>vertical</orientation>
+        <onleft>close</onleft>
+        <onright>close</onright>
+      </control>
+      <control type="button" id="10" description="Agree">
+        <visible></visible>
+        <posx>700</posx>
+        <posy>950</posy>
+        <height>60</height>
+        <width>250</width>
+        <label>Agree</label>
+        <align>center</align>
+        <pulseonselect>true</pulseonselect>
+      </control>
+      <control type="button" id="11" description="Disagree">
+        <visible></visible>
+        <posx>980</posx>
+        <posy>950</posy>
+        <height>60</height>
+        <width>250</width>
+        <label>Disagree</label>
+        <align>center</align>
+        <pulseonselect>true</pulseonselect>
+      </control>      
+    </control>
+  </controls>
+</window>

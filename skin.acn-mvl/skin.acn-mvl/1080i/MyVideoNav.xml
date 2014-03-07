@@ -1,0 +1,194 @@
+<window>
+  <defaultcontrol always="true">50</defaultcontrol>
+  <controls>
+    <control type="group" description="BG">
+      <include>Fanart_Art</include>
+      <control type="group" description="Showcase trigger">
+        <animation effect="slide" easing="out" start="0,0" end="0,-90" time="350" delay="0" center="120,350" reversible="true" condition="Control.HasFocus(7000)">Conditional</animation>
+        <include>Time</include>
+      </control>
+    </control>
+    <!-- LIST 50 -->
+    <control type="group" description="50 MediaInfo">
+      <visible>Control.IsVisible(50)</visible>
+      <include>OpenClose</include>
+      <include>View_50</include>
+      <control type="group" description="Thumbs NO info">
+        <visible>![Container.Content(musicvideos) | Container.Content(movies) | container.content(tvshows) | container.content(seasons) | container.content(episodes)]</visible>
+        <control type="image" id="70050" description="Poster">
+          <visible>SubString(Container.FolderPath,videodb://1/2,left) | SubString(Container.FolderPath,videodb://4,left)</visible>
+          <posx>147</posx>
+          <posy>426</posy>
+          <width>429</width>
+          <height>621</height>
+          <include>Icon_Fade</include>
+          <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+          <include>ThumbBorder</include>
+          <aspectratio aligny="bottom">scale</aspectratio>
+        </control>
+        <control type="image" description="Generic thumb">
+          <visible>!Control.IsVisible(70050) + !container.content(artists)</visible>
+          <posx>60</posx>
+          <posy>426</posy>
+          <width>570</width>
+          <height>621</height>
+          <include>Icon_Fade</include>
+          <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+          <include>ThumbBorder</include>
+          <aspectratio aligny="bottom">keep</aspectratio>
+        </control>
+      </control>
+      <control type="group" description="MediaInfo">
+        <visible>Container.Content(musicvideos) | Container.Content(movies) | container.content(tvshows) | Container.Content(Seasons) | container.content(episodes)</visible>
+        <control type="group" description="Movies and shows">
+          <visible>!container.content(episodes)</visible>
+          <control type="image" description="Thumb">
+            <posx>40</posx>
+            <posy>444</posy>
+            <width>470</width>
+            <height>600</height>
+            <include>Icon_Fade</include>
+            <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+            <include>ThumbBorder</include>
+            <aspectratio aligny="bottom">keep</aspectratio>
+          </control>
+          <control type="group" description="Media info">
+		  	<visible>!Container.Content(seasons)</visible>
+            <animation effect="fade" delay="100" time="300">Visible</animation>
+            <animation effect="fade" time="0">Hidden</animation>
+            <posx>555</posx>
+            <posy>486</posy>
+            <control type="label" description="Title">
+              <posy>142</posy>
+              <width>650</width>
+              <height>33</height>
+              <font>InfoTitle</font>
+              <textcolor>Orange</textcolor>
+              <shadowcolor>Black</shadowcolor>
+              <align>left</align>
+              <scroll>false</scroll>
+              <label>$INFO[ListItem.Title]</label>
+            </control>
+            <control type="label" description="Details">
+              <posy>192</posy>
+              <width>650</width>
+              <height>33</height>
+              <font>Details</font>
+              <shadowcolor>Black</shadowcolor>
+              <scroll>false</scroll>
+              <label>$VAR[Details]</label>
+            </control>
+            <control type="textbox" description="Plot51">
+              <posy>249</posy>
+              <width>650</width>
+              <height>260</height>
+              <shadowcolor>Black</shadowcolor>
+              <label>$VAR[Plots]</label>
+            </control>
+            <control type="image" description="Stars">
+              <posx>-6</posx>
+              <posy>523</posy>
+              <include>Stars</include>
+            </control>
+            <control type="image" description="HD badge">
+              <visible>![ListItem.IsFolder | IsEmpty(ListItem.VideoResolution) | !IntegerGreaterThan(ListItem.VideoResolution,710)]</visible>
+              <posx>120</posx>
+              <posy>525</posy>
+              <height>24</height>
+              <width>90</width>
+              <aspectratio aligny="bottom" align="right">keep</aspectratio>
+              <texture>badges/HD.png</texture>
+            </control>
+          </control>
+        </control>
+        <control type="group" description="Episodes only">
+          <visible>container.content(episodes)</visible>
+          <posx>60</posx>
+          <posy>531</posy>
+          <control type="image" description="Thumb">
+            <posx>-6</posx>
+            <posy>-123</posy>
+            <width>720</width>
+            <height>384</height>
+            <include>Icon_Fade</include>
+            <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+            <include>ThumbBorder</include>
+            <aspectratio>scale</aspectratio>
+          </control>
+          <control type="group" description="Media info">
+            <posx>0</posx>
+            <posy>120</posy>
+            <control type="label" description="Details">
+              <posy>179</posy>
+              <height>33</height>
+              <width>708</width>
+              <font>Details</font>
+              <label>$VAR[Details]</label>
+            </control>
+            <control type="textbox" description="Plot51">
+              <posx>0</posx>
+              <posy>221</posy>
+              <width>708</width>
+              <height>124</height>
+              <label>$VAR[Plots]</label>
+            </control>
+            <control type="image" description="Stars">
+              <posx>-6</posx>
+              <posy>360</posy>
+              <include>Stars</include>
+            </control>
+            <control type="image" description="HD badge">
+              <visible>![ListItem.IsFolder | IsEmpty(ListItem.VideoResolution) | !IntegerGreaterThan(ListItem.VideoResolution,710)]</visible>
+              <posx>120</posx>
+              <posy>363</posy>
+              <height>24</height>
+              <width>90</width>
+              <aspectratio aligny="bottom" align="right">keep</aspectratio>
+              <texture>badges/HD.png</texture>
+            </control>
+          </control>
+        </control>
+      </control>
+    </control>
+    <!-- LIST 55 Big Panel -->
+    <!-- LIST 57,58,59 Fanart -->
+    <control type="group" description="Fanart View">
+      <include>OpenClose</include>
+      <include>View_59_Showcase</include>
+    </control>
+    <!-- SIDE MENU -->
+    <!--control type="group" description="Side menu 9000 group">
+      <include>9000Commons</include>
+      <control type="grouplist" id="9000">
+        <include>9000GrouplistParameters</include>
+        <control type="togglebutton" id="14" description="Toggle Watched">
+          <include>9000SysButtons</include>
+          <label>$LOCALIZE[535]: $LOCALIZE[16100]</label>
+          <altlabel>$LOCALIZE[535]: $LOCALIZE[16101]</altlabel>
+        </control>
+        <control type="button" id="3" description="Sort">
+          <include>9000SysButtons</include>
+        </control>
+        <control type="togglebutton" id="4" description="Sort direction">
+          <include>9000SysButtons</include>
+          <label>$LOCALIZE[21429]:  $LOCALIZE[21430]</label>
+          <altlabel>$LOCALIZE[21429]:  $LOCALIZE[21431]</altlabel>
+        </control>
+        <control type="radiobutton" id="17" description="Flatten">
+          <include>9000SysButtons</include>
+          <label>$LOCALIZE[14022] - $LOCALIZE[20411]</label>
+          <onclick>fullscreen</onclick>
+        </control>
+        <control type="button" id="698" description="Browse files">
+          <include>9000SysButtons</include>
+          <label>$LOCALIZE[1024] $LOCALIZE[744]</label>
+          <onclick>ActivateWindow(Videos,files)</onclick>
+        </control>
+        <control type="button" id="8" description="Search">
+          <include>9000SysButtons</include>
+          <label>$LOCALIZE[137]</label>
+        </control>
+      </control>
+    </control-->
+  </controls>
+</window>
